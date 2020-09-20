@@ -3,7 +3,7 @@ import { GlobalContext } from "../contaxt/GlobalState";
 
 function AddTransection() {
   const [text, setText] = useState("");
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState();
   const { addTransaction } = useContext(GlobalContext);
 
   const onsubmit = (e) => {
@@ -15,7 +15,7 @@ function AddTransection() {
       amount: +amount,
     };
     addTransaction(newTransaction);
-    setAmount(0);
+    setAmount();
     setText("");
   };
 
@@ -35,7 +35,7 @@ function AddTransection() {
         <div className="form-control">
           <label htmlFor="amout">
             Amount <br />
-            (negative - expense , positive - income)
+            (-) for expenses , (+) for income
           </label>
           <input
             value={amount}
